@@ -1,0 +1,14 @@
+   
+
+% Ejercicio 3 - Potencia
+
+potencia(_,0,1).
+
+potencia(B,1,B).
+
+potencia(B,E,V):-
+    E > 1,
+    Y is E - 1,
+    potencia(B,Y,M),
+    V is B * M.
+

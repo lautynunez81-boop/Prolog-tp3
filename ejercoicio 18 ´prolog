@@ -1,0 +1,13 @@
+
+% Ejercicio 18 - Insertar un elemento en una posicion
+
+% Caso base: insertar en la posicion 1
+insertarEn(E,L,1,[E|L]).
+
+% Caso recursivo: avanzar hasta la posicion indicada
+insertarEn(E,[X|L],P,[X|R]):-
+    P > 1,
+    P1 is P - 1,
+    insertarEn(E,L,P1,R).
+
+

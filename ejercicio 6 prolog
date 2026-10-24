@@ -1,0 +1,18 @@
+
+% Ejercicio 6 - Diagnostico
+
+% Hechos de sintomas
+sintoma(juan,fiebre).
+sintoma(juan,tos).
+sintoma(maria,dolor_cabeza).
+sintoma(pedro,fiebre).
+
+% Hechos de enfermedades
+enfermedad(gripe,fiebre).
+enfermedad(gripe,tos).
+enfermedad(migrana,dolor_cabeza).
+
+% Regla de diagnostico
+diagnostico(P,S,E):-
+    sintoma(P,S),
+    enfermedad(E,S).

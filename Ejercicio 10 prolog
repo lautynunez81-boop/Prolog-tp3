@@ -1,0 +1,8 @@
+
+% Ejercicio 10 - Cantidad de elementos
+
+cantidad([],0).
+
+cantidad([_|R],N):-
+    cantidad(R,N1),
+    N is N1 + 1.

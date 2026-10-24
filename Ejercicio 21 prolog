@@ -1,0 +1,25 @@
+
+% Ejercicio 21 - Arbol genealogico
+
+% Personas
+persona(carlos,1001,70).
+persona(juan,1002,45).
+persona(pedro,1003,20).
+persona(ana,1004,18).
+
+% Relaciones familiares
+padre(carlos,juan).
+padre(juan,pedro).
+padre(juan,ana).
+
+% Antecesor directo o indirecto
+antecesor(X,Y):-
+    padre(X,Y).
+
+antecesor(X,Y):-
+    padre(X,Z),
+    antecesor(Z,Y).
+
+% Descendiente directo o indirecto
+descendiente(X,Y):-
+    antecesor(Y,X).

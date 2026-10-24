@@ -1,0 +1,10 @@
+
+% Ejercicio 17 - Rotar hacia la izquierda
+
+rotarIzq(L,0,L).
+
+rotarIzq([X|R],N,P):-
+    N > 0,
+    append(R,[X],Nueva),
+    N1 is N - 1,
+    rotarIzq(Nueva,N1,P).

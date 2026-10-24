@@ -1,0 +1,9 @@
+
+% Ejercicio 22 - Formar parejas de dos listas
+
+% Caso base
+parejas([],[],[]).
+
+% Caso recursivo
+parejas([X|R1],[Y|R2],[[X,Y]|R3]):-
+    parejas(R1,R2,R3).

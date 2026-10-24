@@ -1,0 +1,38 @@
+
+% Ejercicio 24 - Grafo de ciudades
+
+% Conexiones y distancias
+ruta(mendoza,san_juan,160).
+ruta(mendoza,san_luis,280).
+ruta(san_juan,san_luis,710).
+ruta(san_luis,cordoba,350).
+ruta(san_luis,buenos_aires,488).
+ruta(cordoba,buenos_aires,540).
+ruta(cordoba,misiones,950).
+ruta(cordoba,santa_fe,280).
+ruta(santa_fe,misiones,570).
+
+% Permitir viajar en ambos sentidos
+conexion(A,B,D):-
+    ruta(A,B,D).
+
+conexion(A,B,D):-
+    ruta(B,A,D).
+
+% Buscar un camino sin repetir ciudades
+camino(A,B,Visitadas,D):-
+    conexion(A,B,D),
+    \+ member(B,Visitadas),
+    write(B),nl.
+
+camino(A,B,Visitadas,D):-
+    conexion(A,C,D1),
+    \+ member(C,Visitadas),
+    write(C),nl,
+    camino(C,B,[C|Visitadas],D2),
+    D is D1+D2.
+
+% Consultar un camino y su distancia
+viajar(A,B,D):-
+    write(A),nl,
+    camino(A,B,[A],D).

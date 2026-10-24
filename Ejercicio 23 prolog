@@ -1,0 +1,52 @@
+
+
+% Ejercicio 23 - Base de datos de personas
+
+% persona(Nombre, Telefono, Sexo, Edad)
+% m = masculino, f = femenino
+
+persona(juan,1111,m,30).
+persona(maria,2222,f,28).
+persona(pedro,3333,m,19).
+persona(ana,4444,f,35).
+persona(carlos,5555,m,45).
+persona(laura,6666,f,40).
+
+% Buscar si una persona existe
+existe(Nombre):-
+    persona(Nombre,_,_,_).
+
+% Mostrar todas las personas
+mostrarPersonas(Nombre,Telefono,Sexo,Edad):-
+    persona(Nombre,Telefono,Sexo,Edad).
+
+% Mostrar todas las mujeres
+mujeres(Nombre):-
+    persona(Nombre,_,f,_).
+
+% Mostrar varones mayores de 21 anios
+varonesMayores(Nombre):-
+    persona(Nombre,_,m,Edad),
+    Edad > 21.
+
+% Relacion de matrimonio mediante telefonos
+casado(1111,2222).
+casado(5555,6666).
+
+% Relacion de visitas
+visita(2222,3333).
+visita(6666,1111).
+visita(1111,4444).
+
+% Mostrar personas casadas
+mostrarCasados(Nombre1,Nombre2):-
+    casado(T1,T2),
+    persona(Nombre1,T1,_,_),
+    persona(Nombre2,T2,_,_).
+
+% Regla solicitada en el enunciado
+c(X):-
+    casado(X,Y),
+    visita(Y,Z),
+    persona(_,Z,m,_).
+

@@ -1,0 +1,14 @@
+
+% Ejercicio 19 - Insertar en una lista ordenada
+
+% Caso base: lista vacia
+insOrden(E,[],[E]).
+
+% Insertar antes del primer elemento mayor o igual
+insOrden(E,[X|R],[E,X|R]):-
+    E =< X.
+
+% Si E es mayor, conservar X y seguir buscando
+insOrden(E,[X|R],[X|D]):-
+    E > X,
+    insOrden(E,R,D).

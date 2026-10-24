@@ -1,0 +1,8 @@
+
+% Ejercicio 12 - Invertir una lista
+
+inversa([],[]).
+
+inversa([X|R],I):-
+    inversa(R,T),
+    append(T,[X],I).

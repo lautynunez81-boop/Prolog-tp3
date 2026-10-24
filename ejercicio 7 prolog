@@ -1,0 +1,19 @@
+
+% Ejercicio 7 - Predecesor
+
+
+predecesor([],[]).
+
+predecesor([X|R],[X|S]):-
+    comparar(X,R,S).
+
+comparar(_,[],[]).
+
+comparar(A,[X|R],[X|S]):-
+    X >= A,
+    comparar(X,R,S).
+
+comparar(A,[X|R],S):-
+    X < A,
+    comparar(X,R,S).
+

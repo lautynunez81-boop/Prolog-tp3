@@ -1,0 +1,19 @@
+
+% Ejercicio 20 - Ordenar una lista
+
+% Insertar un elemento en una lista ordenada
+insOrden(E,[],[E]).
+
+insOrden(E,[X|R],[E,X|R]):-
+    E =< X.
+
+insOrden(E,[X|R],[X|D]):-
+    E > X,
+    insOrden(E,R,D).
+
+% Ordenar una lista
+ordenada([],[]).
+
+ordenada([X|R],O):-
+    ordenada(R,OR),
+    insOrden(X,OR,O).

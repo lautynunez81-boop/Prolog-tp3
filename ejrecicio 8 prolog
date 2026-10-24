@@ -1,0 +1,12 @@
+
+
+% Ejercicio 8 - Rotar lista a la izquierda
+
+rotada(L,0,L).
+
+rotada([X|R],N,P):-
+    N > 0,
+    append(R,[X],Nueva),
+    N1 is N - 1,
+    rotada(Nueva,N1,P).
+

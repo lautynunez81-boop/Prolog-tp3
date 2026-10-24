@@ -1,0 +1,7 @@
+
+% Ejercicio 14 - Eliminar una ocurrencia
+
+eliminar([X|R],X,R).
+
+eliminar([Y|L],X,[Y|R]):-
+    eliminar(L,X,R).

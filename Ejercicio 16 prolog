@@ -1,0 +1,12 @@
+
+% Ejercicio 16 - Interseccion de listas
+
+intersec([],_,[]).
+
+intersec([X|R],L2,[X|L3]):-
+    member(X,L2),
+    !,
+    intersec(R,L2,L3).
+
+intersec([_|R],L2,L3):-
+    intersec(R,L2,L3).

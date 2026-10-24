@@ -1,0 +1,8 @@
+
+% Ejercicio 9 - Suma de una lista
+
+suma(0,[]).
+
+suma(S,[C|Q]):-
+    suma(P,Q),
+    S is P + C.

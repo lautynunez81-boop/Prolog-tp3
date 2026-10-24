@@ -1,0 +1,9 @@
+
+% Ejercicio 13 - Sacar por posicion
+
+sacar(1,[_|R],R).
+
+sacar(P,[X|L],[X|R]):-
+    P > 1,
+    P1 is P - 1,
+    sacar(P1,L,R).

@@ -1,0 +1,7 @@
+
+% Ejercicio 11 - Ultimo elemento
+
+ultimo([X],X).
+
+ultimo([_|R],U):-
+    ultimo(R,U).
